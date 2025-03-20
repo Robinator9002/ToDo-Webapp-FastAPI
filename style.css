@@ -1,0 +1,348 @@
+/* --- Allgemeines Styling --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    /* Sanfter Blauverlauf */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Glas-Effekt für Login & Logged-In Bereich --- */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    /* Halbtransparentes "Glas" */
+    backdrop-filter: blur(10px);
+    /* Weicher Glass-Effekt */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Weiche Schatten */
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    /* Weißer Text für Kontrast */
+}
+
+/* --- Input-Felder --- */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Buttons --- */
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Unsichtbarer Bereich für Logged-In --- */
+#logged-in-section {
+    display: none;
+    width: 800px;
+    /* Breiter für das 3-Spalten-Layout */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.input-error {
+    border: 2px solid red;
+    background-color: rgba(255, 0, 0, 0.1);
+    transition: border 0.3s, background-color 0.3s;
+}
+
+.input-success {
+    border: 2px solid green;
+    background-color: rgba(0, 255, 0, 0.1);
+    transition: border 0.3s, background-color 0.3s;
+}
+
+#account-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.danger-btn {
+    background: rgba(255, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: auto;
+}
+
+.danger-btn:hover {
+    background: rgba(255, 0, 0, 0.9);
+}
+
+#todo-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+#todo-inputs input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#add-todo-btn {
+    width: auto;
+    padding: 8px 15px;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.todo-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.todo-item input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.todo-item span {
+    flex: 1;
+    text-align: left;
+}
+
+.todo-item .danger-btn {
+    background: rgba(0, 0, 0, 0)
+}
+
+#todo-details {
+    position: absolute;
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#todo-details p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+#logged-in-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Links: ToDo hinzufügen */
+#todo-inputs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mitte: ToDo-Liste */
+#todo-list-section {
+    flex: 2;
+    text-align: center;
+}
+
+/* Rechts: Account-Aktionen & ToDo-Details */
+#account-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#todo-details {
+    width: 200px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    text-align: center;
+}
+
+/* --- ToDo-Container --- */
+#todo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    /* Gesamtbreite der Liste */
+    margin: auto;
+}
+
+/* --- ToDo-Liste als Grid --- */
+#todo-list {
+    /* 3 Spalten pro Reihe */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+}
+
+/* --- ToDo Controls --- */
+.todo-controls {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.todo-controls button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#checkAll {
+    background-color: #4caf50;
+    color: white;
+}
+
+#checkAll:hover {
+    background-color: #00cc00;
+}
+
+#removeChecked {
+    background-color: #d9534f;
+    color: white;
+}
+
+#removeChecked:hover {
+    background-color: #ff534f;
+    color: white;
+}
+
+/* --- Einzelnes ToDo-Element --- */
+.todo-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+    min-width: 120px;
+    /* Mindestbreite für saubere Darstellung */
+}
+
+/* --- Checkbox Styling --- */
+.todo-item input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Checkbox aktiviert */
+.todo-item input[type="checkbox"]:checked {
+    background: #00bc00;
+    border-color: #00ff00;
+}
+
+.todo-item input[type="checkbox"]:checked::after {
+    content: "✔";
+    /* Unicode Checkmark */
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: -1px;
+    left: 20%;
+}
+
+/* Titel after checkbox checked */
+.todo-item input[type="checkbox"]:checked+span {
+    text-decoration: line-through;
+    color: #888;
+    /* Optional: Text etwas ausgegraut für besseren Effekt */
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Titel Styling --- */
+.todo-item span {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Löschen-Button (X) --- */
+.todo-item .delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.todo-item .delete-btn:hover {
+    color: darkred;
+}

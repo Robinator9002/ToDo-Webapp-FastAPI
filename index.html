@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Login-Bereich -->
+    <section id="login-section">
+        <h2>Login</h2>
+        <label for="login-username">Benutzername:</label>
+        <input type="text" id="login-username" name="username" required>
+
+        <label for="login-password">Passwort:</label>
+        <input type="password" id="login-password" name="password" required>
+
+        <button id="login-btn">Einloggen</button>
+        <button id="show-register-btn">Registrieren</button>
+    </section>
+
+    <!-- Registrierungs-Bereich (zuerst versteckt) -->
+    <section id="register-section" style="display: none;">
+        <h2>Registrieren</h2>
+        <label for="register-username">Benutzername:</label>
+        <input type="text" id="register-username" required>
+
+        <label for="register-email">E-Mail:</label>
+        <input type="email" id="register-email" required>
+
+        <label for="register-password">Passwort:</label>
+        <input type="password" id="register-password" required>
+
+        <button id="register-btn">Account erstellen</button>
+        <button id="show-login-btn">Zurück zum Login</button>
+    </section>
+
+    <!-- Logged-In Bereich -->
+    <section id="logged-in-section" style="display: none;">
+        <h2>Willkommen!</h2>
+
+        <!-- Logout & Account löschen in die Ecke verschieben -->
+        <div id="account-actions">
+            <button id="logout-btn" class="danger-btn">Logout</button>
+            <button id="delete-btn" class="danger-btn">Account löschen</button>
+        </div>
+
+        <!-- ToDo hinzufügen -->
+        <h3>Neues ToDo hinzufügen</h3>
+        <input type="text" id="todo-title" placeholder="ToDo Name" required>
+        <input type="text" id="todo-description" placeholder="ToDo Beschreibung">
+        <button id="add-todo-btn">Hinzufügen</button>
+
+        <div class="todo-controls">
+            <button id="checkAll">✔ Check All</button>
+            <button id="removeChecked">❌ Remove Checked</button>
+        </div>
+
+        <!-- Liste der ToDos -->
+        <h3>Deine ToDos:</h3>
+        <div id="todo-container">
+            <ul id="todo-list">
+                <!-- Hier werden die ToDos per JS eingefügt -->
+            </ul>
+        </div>
+
+        <!-- ToDo Detail-Container (erscheint beim Hovern) -->
+        <div id="todo-details" style="display: none;">
+            <h4 id="detail-title"></h4>
+            <p id="detail-description"></p>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
